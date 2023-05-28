@@ -1,11 +1,9 @@
-FROM node:12-buster
+FROM node:18-buster
 
 WORKDIR /app
 
 COPY . .
 
 RUN npm install --production
-
-EXPOSE 8080/tcp
 
 CMD ["npm", "start"]

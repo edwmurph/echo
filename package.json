@@ -1,24 +1,17 @@
 {
   "name": "echo",
-  "version": "1.0.0",
-  "description": "dockerized server that just echos the request in the response",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "echo server",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "lint": "eslint .",
+    "start": "./scripts/start.sh",
+    "lint": "eslint . --ext .mjs",
     "build": "docker build -t edwmurph3/echo .",
-    "publish": "docker push edwmurph3/echo:latest",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "docker push edwmurph3/echo:latest"
   },
   "dependencies": {
-    "express": "4.17.1"
-  },
-  "devDependencies": {
-    "eslint": "6.8.0",
-    "eslint-config-airbnb-base": "14.1.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-prefer-arrow": "1.1.7",
-    "eslint-plugin-react": "7.19.0"
+    "express": "4.18.2"
   },
   "author": "edward",
   "homepage": "https://github.com/edwmurph/echo#readme",
@@ -29,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/edwmurph/echo/issues"
+  },
+  "devDependencies": {
+    "@edwmurph/eslint-config": "5.0.2"
   }
 }
