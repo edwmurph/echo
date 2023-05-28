@@ -1,6 +1,6 @@
 {
   "name": "echo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "echo server",
   "main": "index.mjs",
   "type": "module",

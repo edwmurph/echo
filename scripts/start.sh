@@ -14,6 +14,6 @@ function subnet() {
   echo $SUBNET
 }
 
-echo "<center><h1>SUBNET: $(subnet)</h1></center>" > public/index.html
+echo "<center><h1>SUBNET: $(curl ${ECS_CONTAINER_METADATA_URI_V4})</h1></center>" > public/index.html
 
 node index.mjs
