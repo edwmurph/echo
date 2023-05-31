@@ -9,9 +9,7 @@ RUN apt-get update && \
     && unzip awscliv2.zip \
     && ./aws/install \
     && rm -rf \
-        awscliv2.zip \
-    && apt-get -y purge curl \
-    && apt-get -y purge unzip
+        awscliv2.zip
 
 WORKDIR /app
 
