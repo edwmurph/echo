@@ -1,2 +1,3 @@
 # echo
-dockerized server that just echos the request in the response
+
+dockerized http api for testing
