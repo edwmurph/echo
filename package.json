@@ -1,6 +1,6 @@
 {
   "name": "echo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "echo server",
   "main": "index.mjs",
   "type": "module",
@@ -11,6 +11,7 @@
     "publish": "docker push edwmurph3/echo:latest"
   },
   "dependencies": {
+    "@aws-sdk/client-ssm": "3.342.0",
     "express": "4.18.2"
   },
   "author": "edward",
