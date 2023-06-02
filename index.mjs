@@ -11,26 +11,36 @@ app.use( express.static('public') );
 app.get( '/hello', ( _, res ) => res.send('hello!') );
 
 app.get( '/ssm', async( _, res ) => {
-  const ssm_client = new SSMClient({ region: process.env.AWS_REGION });
+  try {
+    const ssm_client = new SSMClient({ region: process.env.AWS_REGION });
 
-  const command = new GetParametersCommand({
-    Names: [ 'test' ],
-    WithDecryption: true
-  });
+    const command = new GetParametersCommand({
+      Names: [ 'test' ],
+      WithDecryption: true
+    });
 
-  const response = await ssm_client.send( command );
+    const response = await ssm_client.send( command );
 
-  res.send( response );
+    res.send( response );
+  } catch ( ex ) {
+    console.error( ex );
+    res.status( 500 ).send( ex.message );
+  }
 });
 
 app.get( '/secrets-manager', async( _, res ) => {
-  const client = new SecretsManagerClient({ region: process.env.AWS_REGION });
+  try {
+    const client = new SecretsManagerClient({ region: process.env.AWS_REGION });
 
-  const command = new GetSecretValueCommand({ SecretId: 'test' });
+    const command = new GetSecretValueCommand({ SecretId: 'test' });
 
-  const response = await client.send( command );
+    const response = await client.send( command );
 
-  res.send( response );
+    res.send( response );
+  } catch ( ex ) {
+    console.error( ex );
+    res.status( 500 ).send( ex.message );
+  }
 });
 
 app.listen( PORT, () => console.log( `listening at http://localhost:${ PORT }` ) );
